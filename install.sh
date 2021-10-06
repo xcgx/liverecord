@@ -19,7 +19,7 @@ export PATH=$PATH:/usr/local/go/bin
 sudo apt -y install git ; sudo apt -y install build-essential
 echo "此处可能需要较长时间，请耐心等待"
 git clone https://github.com/nnn-revo2012/livedl.git ; 
-if [ ! -d "/livedl" ]; then
+if [ ! -d "livedl" ]; then
     echo "livedl 项目文件夹不存在，请确认该项目的github仓库 https://github.com/nnn-revo2012/livedl 是否被删除"
     exit 1
 else
