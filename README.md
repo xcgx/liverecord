@@ -1,4 +1,34 @@
-curl https://raw.githubusercontent.com/xcgx/liverecord/master/install.sh | bash` 
+curl https://raw.githubusercontent.com/xcgx/liverecord/master/install.sh | bash
+
+自动录播脚本
+https://github.com/lovezzzxxx/liverecord
+原作者的安装脚本会报错，一个判断的源地址写错了，修复了下，应该没问题了。
+https://github.com/xcgx/liverecord
+
+一键安装：
+curl https://github.com/xcgx/liverecord/raw/master/install.sh | bash
+
+大约5-10分钟配置完成，自动安装rclone
+
+（配置rclone）
+
+rclone config file
+cd /root/.config/rclone
+wget ‘你自己的rclone.conf直链’ -O rclone.conf
+
+
+cd
+nohup record/record.sh m3u8 https://b-hls-19.strpst.com/hls/55421716/55421716.m3u8 best 1800 10,10,1 "record_video/chloe_30min" rclone:aaa:3del > chloe.log &
+（举个m3u8的使用例子，具体使用参数见readme）
+
+本脚本效果：此m3u8地址有视频流时开始录制，画质最优、30分钟（1800秒）切片一次、循环检测间隔10秒,最短录制间隔10秒,检测到视频流一次即开始录制、存放到本地record_video/chloe_30min目录中、自动备份到rclone的aaa的储存空间中同目录下、如果上传失败最大重试三次、都上传失败或上传成功后自动删除本地文件、日志记录到chloe.log中。
+
+
+ps：小问题，跑一段时间后貌似会gg，解决方法大概是换screen命令或setsid并设置定时任务、定时重启等。
+
+record_new.sh这个sh似乎并不好用。
+record.sh 也太冗余，有用的没用的全装上了。
+就像简简单单跑个m3u8地址的录制咋那么难呢。
 
 
 ## 功能介绍
