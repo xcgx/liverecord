@@ -1,3 +1,6 @@
+curl https://raw.githubusercontent.com/xcgx/liverecord/master/install.sh | bash` 
+
+
 ## 功能介绍
 record_new.sh为自动录播脚本  
   * 支持youtube频道、twitcast频道、twitch频道、openrec频道、niconico生放送、niconico社区、niconico频道、mirrativ频道、reality频道、17live频道、chaturbate频道、bilibili频道、streamlink支持的直播网址、ffmpeg支持的m3u8地址
@@ -18,7 +21,7 @@ record_twitcast.py是录制twitcast的websocket流的精简脚本
 <details>
 <summary>环境依赖</summary>
 
-  * 自动录播脚本，安装方法为`mkdir record ; wget -O "record/record_new.sh" "https://github.com/lovezzzxxx/liverecord/raw/master/record_new.sh" ; chmod +x record/record_new.sh`
+  * 自动录播脚本，安装方法为`mkdir record ; wget -O "record/record_new.sh" "https://github.com/xcgx/liverecord/raw/master/record_new.sh" ; chmod +x record/record_new.sh`
   * [ffmpeg](https://github.com/FFmpeg/FFmpeg)，安装方法为`sudo apt install ffmpeg`。
   * [streamlink](https://github.com/streamlink/streamlink)(基于python3)，安装方法为`pip3 install streamlink`。
   * [livedl](https://github.com/nnn-revo2012/livedl)(基于go，原项目[himananiito/livedl](https://github.com/himananiito/livedl)已失效)，具体编译安装方法可以参考作者的说明， __请将编译完成的livedl文件放置于运行时命令行所在目录的livedl/文件夹内__ 。否则无法使用twitcast、nicolv、nicoco、nicoch参数。
@@ -33,7 +36,7 @@ record_twitcast.py是录制twitcast的websocket流的精简脚本
 
 #### 一键安装(谨慎使用)
 
-`curl https://raw.githubusercontent.com/lovezzzxxx/liverecord/master/install.sh | bash`  
+`curl https://raw.githubusercontent.com/xcgx/liverecord/master/install.sh | bash`  
   * __一键脚本安装后脚本调用方式应为`record/record_new.sh`而非下文示例中的`./record_new.sh`__
   * 一键脚本将会自动安装下列所有环境依赖， __同时会覆盖安装go环境并添加一些环境变量__ ，如果有需要可以注释掉相应的命令或者手动安装环境依赖
   * 其中record.sh、record_new.sh和record_twitcast.py会保存于运行时命令行所在目录的record文件夹下，livedl会保存于运行时命令行所在目录的livedl文件夹下， BilibiliLiveRecorder会解压到运行时命令行所在目录的BilibiliLiveRecorder文件夹下
