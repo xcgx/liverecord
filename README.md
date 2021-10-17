@@ -1,5 +1,6 @@
 curl https://raw.githubusercontent.com/xcgx/liverecord/master/install.sh | bash
 或
+
 curl https://raw.githubusercontent.com/xcgx/liverecord/master/install_lite.sh | bash
 
 自动录播脚本
