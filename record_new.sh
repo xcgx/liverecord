@@ -6,7 +6,7 @@ if [[ ! -n "${1}" ]]; then
 	echo ""
 	echo "基本用法:"
 	echo "${0} 频道类型 频道号码"
-	echo "频道类型支持youtube youtubeffmpeg twitcast twitcastffmpeg twitcastpy twitch openrec nicolv nicoco nicoch mirrativ reality 17live chaturbate bilibili bilibiliy bilibilir streamlink stripchat"
+	echo "频道类型支持youtube youtubeffmpeg twitcast twitcastffmpeg twitcastpy twitch openrec nicolv nicoco nicoch mirrativ reality 17live chaturbate bilibili bilibiliy bilibilir streamlink"
 	echo ""
 	echo ""
 	echo "参数说明:"
@@ -222,9 +222,6 @@ function prasepage(){
 		#STREAM_URL=$(wget -q -O- "https://api.live.bilibili.com/room/v1/Room/playUrl?cid=${PART_URL}&qn=10000&platform=web" | grep -o "\"url\":\"[^\"]*\"" | head -n 1 | awk -F"\"" '{print $4}' | sed 's/\\u0026/\&/g'); fi
 		#STREAM_URL=$(curl -s --proxy ${STREAM_PROXY} "https://api.live.bilibili.com/room/v1/Room/playUrl?cid=${PART_URL}&qn=10000&platform=web" | grep -o "\"url\":\"[^\"]*\"" | grep "https://txy.live-play.acgvideo.com\|https://js.live-play.acgvideo.com\|https://ws.live-play.acgvideo.com" | head -n 1 | awk -F"\"" '{print $4}' | sed 's/\\u0026/\&/g')
 	fi
-	if [[ $TYPE == "stripchat" ]]; then
-		STREAM_URL=$(streamlink --stream-url "${FULL_URL}" "${FORMAT}")
-	fi
 }
 
 #开始录制,返回录制进程id
@@ -298,7 +295,7 @@ function startrecord(){
 			(java -Dfile.encoding=utf-8 -jar BilibiliLiveRecorder/BiliLiveRecorder.jar "debug=true&check=false&liver=bili&id=${PART_URL}&qn=-1&saveFolder=${DIR}&fileName=${DLNAME}" > "${DIR}/${FNAME}.log" 2>&1) &
 		fi
 	fi
-	if [[ $TYPE == "youtubeffmpeg" || $TYPE == "twitcastffmpeg" || $TYPE == "twitch" || $TYPE == "openrec" || $TYPE == "mirrativ" || $TYPE == "reality" || $TYPE == "chaturbate" || $TYPE == "streamlink" || $TYPE == "stripchat"]]; then
+	if [[ $TYPE == "youtubeffmpeg" || $TYPE == "twitcastffmpeg" || $TYPE == "twitch" || $TYPE == "openrec" || $TYPE == "mirrativ" || $TYPE == "reality" || $TYPE == "chaturbate" || $TYPE == "streamlink" ]]; then
 		(ffmpeg -user_agent "Mozilla/5.0" -i "$STREAM_URL" -codec copy -f mpegts "${DIR}/${FNAME}" > "${DIR}/${FNAME}.log" 2>&1) &
 	fi
 	
