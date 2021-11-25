@@ -1,8 +1,10 @@
 curl https://raw.githubusercontent.com/xcgx/liverecord/master/install.sh | bash
 
 或
-
+（推荐）
 curl https://raw.githubusercontent.com/xcgx/liverecord/master/install_lite.sh | bash
+
+lite版本优化说明：仅保留streamlink和rclone功能，streamlink已换源，添加常用18+地址的插件，如chaturbate等
 
 自动录播脚本
 https://github.com/lovezzzxxx/liverecord
@@ -10,7 +12,7 @@ https://github.com/lovezzzxxx/liverecord
 https://github.com/xcgx/liverecord
 
 一键安装：
-curl https://github.com/xcgx/liverecord/raw/master/install.sh | bash
+curl https://raw.githubusercontent.com/xcgx/liverecord/master/install_lite.sh | bash
 
 大约5-10分钟配置完成，自动安装rclone
 
@@ -22,10 +24,10 @@ wget ‘你自己的rclone.conf直链’ -O rclone.conf
 
 
 cd
-nohup record/record.sh m3u8 https://b-hls-19.strpst.com/hls/55421716/55421716.m3u8 best 1800 10,10,1 "record_video/chloe_30min" rclone:aaa:3del > chloe.log &
+nohup record/record_new.sh streamlink "https://stripchat.com/Luna520" -p 3600 -o "record_video/Luna520" -u rclone3:aaa:record_video/Luna520 -dt 1 > Luna520.log &
 （举个m3u8的使用例子，具体使用参数见readme）
 
-本脚本效果：此m3u8地址有视频流时开始录制，画质最优、30分钟（1800秒）切片一次、循环检测间隔10秒,最短录制间隔10秒,检测到视频流一次即开始录制、存放到本地record_video/chloe_30min目录中、自动备份到rclone的aaa的储存空间中同目录下、如果上传失败最大重试三次、都上传失败或上传成功后自动删除本地文件、日志记录到chloe.log中。
+本脚本效果：此地址有视频流时开始录制，画质最优、60分钟（3600秒）切片一次、循环检测间隔10秒,最短录制间隔10秒,检测到视频流一次即开始录制、存放到本地record_video/chloe_30min目录中、自动备份到rclone的aaa的储存空间中同目录下、如果上传失败最大重试三次、都上传失败或上传成功后自动删除本地文件、日志记录到Luna520.log中。
 
 
 ps：小问题，跑一段时间后貌似会gg，解决方法大概是换screen命令或setsid并设置定时任务、定时重启等。
