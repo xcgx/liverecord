@@ -19,11 +19,14 @@ curl https://raw.githubusercontent.com/xcgx/liverecord/master/install_lite.sh | 
 （配置rclone）
 
 rclone config file
+
 cd /root/.config/rclone
+
 wget ‘你自己的rclone.conf直链’ -O rclone.conf
 
 
 cd
+
 nohup record/record_new.sh streamlink "https://stripchat.com/Luna520" -p 3600 -o "record_video/Luna520" -u rclone3:aaa:record_video/Luna520 -dt 1 > Luna520.log &
 （举个m3u8的使用例子，具体使用参数见readme）
 
