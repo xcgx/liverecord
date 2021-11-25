@@ -35,9 +35,8 @@ nohup record/record_new.sh streamlink "https://stripchat.com/Luna520" -p 3600 -o
 
 ps：小问题，跑一段时间后貌似会gg，解决方法大概是换screen命令或setsid并设置定时任务、定时重启等。
 
-record_new.sh这个sh似乎并不好用。
-record.sh 也太冗余，有用的没用的全装上了。
-就想简简单单跑个m3u8地址的录制咋那么难呢。
+#####################
+以下为原作者介绍，深度使用请参考
 
 
 ## 功能介绍
